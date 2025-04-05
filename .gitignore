@@ -23,6 +23,5 @@ Thumbs.db
 *.exe
 chromedriver.exe
 
-src/test/java/Utils/utils.java
 
 

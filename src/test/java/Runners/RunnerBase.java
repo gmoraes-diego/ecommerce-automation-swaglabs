@@ -19,7 +19,6 @@ public class RunnerBase {
      *
      * @return Instância do WebDriver.
      */
-
     public static WebDriver getDriver() {
         // Verifica se a instância do WebDriver já foi criada
         if (driver == null) {

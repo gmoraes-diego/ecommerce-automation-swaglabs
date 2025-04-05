@@ -16,7 +16,7 @@ public class LoginPage {
     }
 
     @FindBy(id = "user-name")
-    private WebElement usernameField;
+    private WebElement userNameField;
 
     @FindBy(id = "password")
     private WebElement passwordField;
@@ -24,9 +24,8 @@ public class LoginPage {
     @FindBy(id = "login-button")
     private WebElement loginButton;
 
-    // Métodos de ação
-    public void enterUsername(String username) {
-        usernameField.sendKeys(username);
+    public void enterUsername(String userName) {
+        userNameField.sendKeys(userName);
     }
 
     public void enterPassword(String password) {
@@ -38,11 +37,13 @@ public class LoginPage {
     }
 
     // 👉 Getters necessários para a classe de Steps
+    // Retorna a instância atual do WebDriver usado por esta página
     public WebDriver getDriver() {
-        return this.driver;
+        return this.driver; // faz referência ao driver da classe LoginPage
     }
 
+    // Retorna o WebElement correspondente ao campo de nome de usuário na tela de login
     public WebElement getUsernameField() {
-        return this.usernameField;
+        return this.userNameField; // aponta para o campo localizado com @FindBy
     }
 }
