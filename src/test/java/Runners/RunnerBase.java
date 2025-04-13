@@ -3,8 +3,10 @@ package Runners;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /* Classe responsável por gerenciar a instância do WebDriver. Garante que a inicialização e finalização
@@ -29,8 +31,20 @@ public class RunnerBase {
 
             // Cria e configura opções para o Chrome
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--start-maximized"); /// Inicia o navegador maximizado
+            options.addArguments("--start-maximized"); // Inicia o navegador maximizado
             options.addArguments("--disable-notifications"); // Desativa notificações do navegador
+            options.addArguments("--incognito"); // Abre o navegador no modo anônimo
+            options.addArguments("--disable-save-password-bubble"); // Impede o navegador de exibir o pop-up para salvar senhas
+
+            Map<String, Object> prefs = new HashMap<>();
+            prefs.put("credentials_enable_service", false); // Desativa o serviço de gerenciamento de credenciais do Chrome
+            prefs.put("profile.password_manager_enabled", false); // Desativa o gerenciador de senhas do perfil do navegador
+
+            options.setExperimentalOption("prefs", prefs); // Aplica as preferências configuradas acima ao navegador
+            options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation", "disable-popup-blocking"));
+// Remove mensagens e comportamentos relacionados à automação (como "Chrome está sendo controlado por software de automação")
+// e impede o bloqueio de pop-ups durante os testes
+
 
             // Instancia o WebDriver com as opções definidas
             driver = new ChromeDriver(options);
