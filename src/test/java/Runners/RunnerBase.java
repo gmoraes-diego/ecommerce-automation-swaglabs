@@ -42,8 +42,8 @@ public class RunnerBase {
 
             options.setExperimentalOption("prefs", prefs); // Aplica as preferências configuradas acima ao navegador
             options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation", "disable-popup-blocking"));
-// Remove mensagens e comportamentos relacionados à automação (como "Chrome está sendo controlado por software de automação")
-// e impede o bloqueio de pop-ups durante os testes
+            // Remove mensagens e comportamentos relacionados à automação (como "Chrome está sendo controlado por software de automação")
+            // e impede o bloqueio de pop-ups durante os testes
 
 
             // Instancia o WebDriver com as opções definidas

@@ -56,12 +56,6 @@ public class ProductPage {
         buttonAddToCart.click();
     }
 
-    // Valida que 1 item foi adicionado ao carrinho
-    public boolean validarQuantidadeNoCarrinho(String quantidadeEsperada) {
-        String quantidadeAtual = cartBadge.getText().trim();
-        return quantidadeAtual.equals(quantidadeEsperada);
-    }
-
     // Clica no ícone para navegar até a página do carrinho
     public void acessarCarrinho() {
         cartIcon.click();
